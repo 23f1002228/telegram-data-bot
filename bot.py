@@ -54,11 +54,23 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         parsed = json.loads(reply_text)
     except json.JSONDecodeError:
-        # Model added extra text — try to pull out just the {...} part.
-        start, end = reply_text.find("{"), reply_text.rfind("}")
+        start = reply_text.find("{")
+        end = reply_text.rfind("}")
         parsed = json.loads(reply_text[start:end + 1])
-    parsed["log_url"] = LOG_URL
-    final_reply = json.dumps(parsed)
+
+# If the model already returned {"answer": ...}, keep it.
+    if "answer" in parsed:
+        final_json = parsed
+    else:
+        final_json = {
+        "answer": parsed,
+        "log_url": LOG_URL
+    }
+
+# Always ensure log_url is present and correct.
+    final_json["log_url"] = LOG_URL
+
+    final_reply = json.dumps(final_json)
 
     log_event({"type": "outgoing", "chat_id": chat_id, "text": final_reply})
     await update.message.reply_text(final_reply)
