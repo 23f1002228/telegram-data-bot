@@ -1,0 +1,4 @@
+{"type": "incoming", "chat_id": 5606341325, "text": "Hello", "timestamp": 1785422214.6894774}
+{"type": "outgoing", "chat_id": 5606341325, "text": "{\"message\": \"Hello\", \"log_url\": \"PASTE_YOUR_PUBLIC_LOG_URL_HERE\"}", "timestamp": 1785422230.4568121}
+{"type": "incoming", "chat_id": 5606341325, "text": "What is India's GDP?", "timestamp": 1785422449.2674644}
+{"type": "outgoing", "chat_id": 5606341325, "text": "{\"country\": \"India\", \"year\": 2023, \"gdp_nominal_usd\": 3730000000000, \"gdp_ppp_usd\": 13700000000000, \"source\": \"IMF World Economic Outlook (2023, approximate)\", \"log_url\": \"PASTE_YOUR_PUBLIC_LOG_URL_HERE\"}", "timestamp": 1785422470.201088}
